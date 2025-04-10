@@ -18,7 +18,7 @@ driver = webdriver.Chrome(
     service=ChromeService(ChromeDriverManager().install()), options=options
 )
 
-wait = WebDriverWait(10)
+wait = WebDriverWait(driver, 10)
 upload_input = wait.until(EC.presence_of_element_located((By.ID, "input")))
 
 
