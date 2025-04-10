@@ -1,0 +1,111 @@
+Стартирана от потребител: „Alexander  Yordanov“
+Running as SYSTEM
+Изграждане в работно пространство „C:\ProgramData\Jenkins\.jenkins\workspace\upload_image_validation“
+The recommended git tool is: NONE
+No credentials specified
+ > git.exe rev-parse --resolve-git-dir C:\ProgramData\Jenkins\.jenkins\workspace\upload_image_validation\.git # timeout=10
+Fetching changes from the remote Git repository
+ > git.exe config remote.origin.url https://github.com/FireWolf240Playz/qa-uni-exam # timeout=10
+Fetching upstream changes from https://github.com/FireWolf240Playz/qa-uni-exam
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.41.0.windows.1'
+ > git.exe fetch --tags --force --progress -- https://github.com/FireWolf240Playz/qa-uni-exam +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git.exe rev-parse "refs/remotes/origin/main^{commit}" # timeout=10
+Checking out Revision 88619b8337e3de36cfe99687f3455a884b17db86 (refs/remotes/origin/main)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f 88619b8337e3de36cfe99687f3455a884b17db86 # timeout=10
+Commit message: "added raw strig"
+ > git.exe rev-list --no-walk a0686fe22325e56aaf54df699f47e22704bd9194 # timeout=10
+[upload_image_validation] $ cmd /c call C:\WINDOWS\TEMP\jenkins17663537654190885199.bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\upload_image_validation>cd "C:\Users\александър\OneDrive\Работен плот\upload_test" 
+The system cannot find the path specified.
+
+C:\ProgramData\Jenkins\.jenkins\workspace\upload_image_validation>pip install selenium webdriver-manager 
+Requirement already satisfied: selenium in c:\python311\lib\site-packages (4.31.0)
+Requirement already satisfied: webdriver-manager in c:\python311\lib\site-packages (4.0.2)
+Requirement already satisfied: urllib3[socks]<3,>=1.26 in c:\python311\lib\site-packages (from selenium) (2.4.0)
+Requirement already satisfied: trio~=0.17 in c:\python311\lib\site-packages (from selenium) (0.29.0)
+Requirement already satisfied: trio-websocket~=0.9 in c:\python311\lib\site-packages (from selenium) (0.12.2)
+Requirement already satisfied: certifi>=2021.10.8 in c:\python311\lib\site-packages (from selenium) (2025.1.31)
+Requirement already satisfied: typing_extensions~=4.9 in c:\python311\lib\site-packages (from selenium) (4.10.0)
+Requirement already satisfied: websocket-client~=1.8 in c:\python311\lib\site-packages (from selenium) (1.8.0)
+Requirement already satisfied: requests in c:\python311\lib\site-packages (from webdriver-manager) (2.32.3)
+Requirement already satisfied: python-dotenv in c:\python311\lib\site-packages (from webdriver-manager) (1.0.1)
+Requirement already satisfied: packaging in c:\python311\lib\site-packages (from webdriver-manager) (24.2)
+Requirement already satisfied: attrs>=23.2.0 in c:\python311\lib\site-packages (from trio~=0.17->selenium) (25.3.0)
+Requirement already satisfied: sortedcontainers in c:\python311\lib\site-packages (from trio~=0.17->selenium) (2.4.0)
+Requirement already satisfied: idna in c:\python311\lib\site-packages (from trio~=0.17->selenium) (3.6)
+Requirement already satisfied: outcome in c:\python311\lib\site-packages (from trio~=0.17->selenium) (1.3.0.post0)
+Requirement already satisfied: sniffio>=1.3.0 in c:\python311\lib\site-packages (from trio~=0.17->selenium) (1.3.1)
+Requirement already satisfied: cffi>=1.14 in c:\python311\lib\site-packages (from trio~=0.17->selenium) (1.17.1)
+Requirement already satisfied: wsproto>=0.14 in c:\python311\lib\site-packages (from trio-websocket~=0.9->selenium) (1.2.0)
+Requirement already satisfied: pysocks!=1.5.7,<2.0,>=1.5.6 in c:\python311\lib\site-packages (from urllib3[socks]<3,>=1.26->selenium) (1.7.1)
+Requirement already satisfied: charset-normalizer<4,>=2 in c:\python311\lib\site-packages (from requests->webdriver-manager) (3.4.1)
+Requirement already satisfied: pycparser in c:\python311\lib\site-packages (from cffi>=1.14->trio~=0.17->selenium) (2.22)
+Requirement already satisfied: h11<1,>=0.9.0 in c:\python311\lib\site-packages (from wsproto>=0.14->trio-websocket~=0.9->selenium) (0.14.0)
+
+[notice] A new release of pip available: 22.3 -> 25.0.1
+[notice] To update, run: python.exe -m pip install --upgrade pip
+
+C:\ProgramData\Jenkins\.jenkins\workspace\upload_image_validation>python upload_test.py 
+2025-04-10 19:38:49,073 - INFO - ====== WebDriver manager ======
+2025-04-10 19:38:51,691 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-10 19:38:52,121 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-10 19:38:52,533 - INFO - Driver [C:\WINDOWS\system32\config\systemprofile\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-04-10 19:38:53,893 - INFO - Starting Gruyere automation
+2025-04-10 19:38:54,998 - INFO - Opened Gruyere start page: https://google-gruyere.appspot.com/377691518057699612282348493247076654690/
+2025-04-10 19:39:05,359 - ERROR - [FAIL] Element issue: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0075C7F3+24435]
+	(No symbol) [0x006E2074]
+	(No symbol) [0x005B06E3]
+	(No symbol) [0x005F8B39]
+	(No symbol) [0x005F8E8B]
+	(No symbol) [0x00641AC2]
+	(No symbol) [0x0061D804]
+	(No symbol) [0x0063F20A]
+	(No symbol) [0x0061D5B6]
+	(No symbol) [0x005EC54F]
+	(No symbol) [0x005ED894]
+	GetHandleVerifier [0x00A670A3+3213347]
+	GetHandleVerifier [0x00A7B0C9+3295305]
+	GetHandleVerifier [0x00A7558C+3271948]
+	GetHandleVerifier [0x007F7360+658144]
+	(No symbol) [0x006EB27D]
+	(No symbol) [0x006E8208]
+	(No symbol) [0x006E83A9]
+	(No symbol) [0x006DAAC0]
+	BaseThreadInitThunk [0x75E45D49+25]
+	RtlInitializeExceptionChain [0x77B9CE3B+107]
+	RtlGetAppContainerNamedObjectPath [0x77B9CDC1+561]
+
+2025-04-10 19:39:07,898 - INFO - Browser closed.
+[FAIL] Test Failed: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0075C7F3+24435]
+	(No symbol) [0x006E2074]
+	(No symbol) [0x005B06E3]
+	(No symbol) [0x005F8B39]
+	(No symbol) [0x005F8E8B]
+	(No symbol) [0x00641AC2]
+	(No symbol) [0x0061D804]
+	(No symbol) [0x0063F20A]
+	(No symbol) [0x0061D5B6]
+	(No symbol) [0x005EC54F]
+	(No symbol) [0x005ED894]
+	GetHandleVerifier [0x00A670A3+3213347]
+	GetHandleVerifier [0x00A7B0C9+3295305]
+	GetHandleVerifier [0x00A7558C+3271948]
+	GetHandleVerifier [0x007F7360+658144]
+	(No symbol) [0x006EB27D]
+	(No symbol) [0x006E8208]
+	(No symbol) [0x006E83A9]
+	(No symbol) [0x006DAAC0]
+	BaseThreadInitThunk [0x75E45D49+25]
+	RtlInitializeExceptionChain [0x77B9CE3B+107]
+	RtlGetAppContainerNamedObjectPath [0x77B9CDC1+561]
+
+
+C:\ProgramData\Jenkins\.jenkins\workspace\upload_image_validation>exit 0 
+Finished: SUCCESS
