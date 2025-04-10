@@ -18,7 +18,9 @@ logging.basicConfig(
 GRUYERE_URL = (
     "https://google-gruyere.appspot.com/377691518057699612282348493247076654690/"
 )
-IMAGE_PATH = os.path.abspath("C:\Users\александър\OneDrive\Работен плот\budgetApp (1).jpg")
+IMAGE_PATH = os.path.abspath(
+    r"C:\Users\александър\OneDrive\Работен плот\budgetApp (1).jpg"
+)
 
 options = Options()
 options.add_argument("--headless")
@@ -39,9 +41,7 @@ try:
     start_link.click()
     logging.info("Clicked 'Agree & Start'")
 
-    upload_url = (
-        driver.current_url + "/upload.gtl"
-    ) 
+    upload_url = driver.current_url + "/upload.gtl"
     driver.get(upload_url)
     logging.info(f"Navigated to: {upload_url}")
 
