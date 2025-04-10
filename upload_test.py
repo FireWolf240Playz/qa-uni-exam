@@ -19,7 +19,7 @@ driver = webdriver.Chrome(
 )
 
 wait = WebDriverWait(driver, 10)
-upload_input = wait.until(EC.presence_of_element_located((By.ID, "input")))
+upload_input = wait.until(EC.presence_of_element_located((By.ID, "123")))
 
 
 logging.basicConfig(
