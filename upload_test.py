@@ -11,8 +11,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-# Wait for the element to be present
-wait = WebDriverWait(driver, 10)
+wait = WebDriverWait(10)
 upload_input = wait.until(EC.presence_of_element_located((By.ID, "input")))
 
 
