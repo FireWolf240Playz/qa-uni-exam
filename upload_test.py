@@ -8,6 +8,14 @@ from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import NoSuchElementException
 from webdriver_manager.chrome import ChromeDriverManager
 
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+# Wait for the element to be present
+wait = WebDriverWait(driver, 10)
+upload_input = wait.until(EC.presence_of_element_located((By.ID, "input")))
+
+
 logging.basicConfig(
     level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
 )
@@ -45,12 +53,12 @@ try:
     print("✅ Test Passed: Image upload and preview successful.")
 
 except AssertionError as ae:
-    logging.error(f"❌ Assertion failed: {ae}")
-    print(f"❌ Test Failed: {ae}")
+    logging.error(f"[FAIL] Assertion failed: {ae}")
+    print(f"[FAIL] Test Failed: {ae}")
 
 except NoSuchElementException as ne:
-    logging.error(f"❌ Element not found: {ne}")
-    print(f"❌ Test Failed: {ne}")
+    logging.error(f"[FAIL] Element not found: {ne}")
+    print(f"[FAIL] Test Failed: {ne}")
 
 finally:
     driver.quit()
