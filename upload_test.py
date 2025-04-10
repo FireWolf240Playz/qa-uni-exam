@@ -7,14 +7,16 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import NoSuchElementException
 from webdriver_manager.chrome import ChromeDriverManager
-
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.chrome.options import Options
+
+# Optional: headless mode
+options = Options()
 
 driver = webdriver.Chrome(
     service=ChromeService(ChromeDriverManager().install()), options=options
 )
-
 
 wait = WebDriverWait(10)
 upload_input = wait.until(EC.presence_of_element_located((By.ID, "input")))
