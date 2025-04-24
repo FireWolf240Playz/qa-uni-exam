@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Run Tests') {
+            steps {
+                sh 'python upload_test.py'
+            }
+        }
+    }
+
+    post {
+        always {
+            archiveArtifacts artifacts: 'screenshots/*.png', allowEmptyArchive: true
+        }
+    }
+}

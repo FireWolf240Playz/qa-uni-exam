@@ -8,7 +8,7 @@ class InputFieldTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         options = Options()
-        options.add_argument("--headless")  # run without opening a browser window
+        options.add_argument("--headless")
         cls.driver = webdriver.Chrome(options=options)
         cls.driver.get("http://the-internet.herokuapp.com/inputs")
         cls.input_field = cls.driver.find_element(By.TAG_NAME, "input")
