@@ -7,7 +7,7 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import NoSuchElementException, TimeoutException
+from selenium.common.exceptions import TimeoutException
 from webdriver_manager.chrome import ChromeDriverManager
 
 
@@ -29,22 +29,19 @@ class GruyereUploadTest(unittest.TestCase):
         )
         cls.wait = WebDriverWait(cls.driver, 10)
 
-        cls.GRUYERE_URL = "https://google-gruyere.appspot.com/377691518057699612282348493247076654690/"
+        cls.GRUYERE_URL = "https://google-gruyere.appspot.com/594464600711147540234356220068201878075/"
         cls.IMAGE_PATH = os.path.abspath(
             r"C:\Users\александър\OneDrive\Работен плот\budgetApp (1).jpg"
         )
-        cls.FAKE_FILE = os.path.abspath(
-            "not_an_image.txt"
-        )  # Add a dummy file for testing non-image
+        cls.FAKE_FILE = os.path.abspath("not_an_image.txt")
 
     def test_image_upload_success(self):
         logging.info("Testing valid image upload to Gruyere")
-        self.driver.get(self.GRUYERE_URL)
-        self.wait.until(
-            EC.element_to_be_clickable((By.LINK_TEXT, "Agree & Start"))
-        ).click()
 
-        self.driver.get(self.driver.current_url + "/upload.gtl")
+        upload_url = self.GRUYERE_URL.rstrip("/") + "/upload.gtl"
+        self.driver.get(upload_url)
+        logging.info(f"Navigated to: {upload_url}")
+
         upload_input = self.wait.until(
             EC.presence_of_element_located((By.NAME, "file"))
         )
@@ -65,12 +62,11 @@ class GruyereUploadTest(unittest.TestCase):
 
     def test_non_image_upload(self):
         logging.info("Testing non-image file upload to Gruyere")
-        self.driver.get(self.GRUYERE_URL)
-        self.wait.until(
-            EC.element_to_be_clickable((By.LINK_TEXT, "Agree & Start"))
-        ).click()
 
-        self.driver.get(self.driver.current_url + "/upload.gtl")
+        upload_url = self.GRUYERE_URL.rstrip("/") + "/upload.gtl"
+        self.driver.get(upload_url)
+        logging.info(f"Navigated to: {upload_url}")
+
         upload_input = self.wait.until(
             EC.presence_of_element_located((By.NAME, "file"))
         )
@@ -81,7 +77,8 @@ class GruyereUploadTest(unittest.TestCase):
 
         page_source = self.driver.page_source
         self.assertTrue(
-            "error" in page_source.lower() or "upload" in page_source.lower()
+            "error" in page_source.lower() or "upload" in page_source.lower(),
+            "Expected failure or message on non-image upload",
         )
 
         self.driver.save_screenshot("screenshots/gruyere_non_image_upload.png")
