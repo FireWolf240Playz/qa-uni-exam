@@ -18,14 +18,14 @@ class InputFieldTest(unittest.TestCase):
         self.input_field.clear()
         self.input_field.send_keys("12345")
         value = self.input_field.get_attribute("value")
-        assert value == "12345", f"Expected '12345' but got '{value}'"
+        self.assertEqual(value, "12345", f"Expected '12345' but got '{value}'")
 
     def test_non_numeric_input(self):
         """Test that non-numeric input is not accepted."""
         self.input_field.clear()
         self.input_field.send_keys("abcd")
         value = self.input_field.get_attribute("value")
-        assert value == "", f"Expected empty string but got '{value}'"
+        self.assertEqual(value, "", f"Expected empty string but got '{value}'")
 
     @classmethod
     def tearDownClass(cls):
